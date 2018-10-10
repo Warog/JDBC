@@ -4,20 +4,20 @@ import java.sql.*;
 import java.util.*;
 
 
-public class actDB {
+public class ActDB {
     private static final String bdPath = "jdbc:sqlite:D:/Documents/Test.s3db";
 
-    private static actDB sample = null;
+    private static ActDB sample = null;
 
-    public static synchronized actDB getSample() throws SQLException {
+    public static synchronized ActDB getSample() throws SQLException {
         if(sample == null)
-            sample = new actDB();
+            sample = new ActDB();
         return sample;
     }
 
     private Connection connection;
 
-    private actDB() throws SQLException {
+    private ActDB() throws SQLException {
         DriverManager.registerDriver(new JDBC());
         this.connection = DriverManager.getConnection(bdPath);
     }
@@ -35,6 +35,7 @@ public class actDB {
 
             }catch(SQLException e) {
             e.printStackTrace();
+            return null;
         }
 
 

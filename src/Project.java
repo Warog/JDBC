@@ -10,7 +10,7 @@ public class Project {
 
     @Override
     public String toString(){
-        return String.format("ID: %s | Name %s", this.id, this.name);
+        return String.format("ID: %s | Name: %s", this.id, this.name);
     }
 
 
