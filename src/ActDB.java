@@ -79,4 +79,19 @@ public class ActDB {
 
 
     }
+
+    public void addProject(Project project){
+        try(PreparedStatement statement = this.connection.prepareStatement("INSERT INTO Projects('Name')" + "VALUES(?)")){
+            statement.setObject(1, project.name);
+            statement.execute();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addUser(User user){}
+
+    public void addIssue(Issue issue){}
+
 }

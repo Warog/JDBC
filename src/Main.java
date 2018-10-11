@@ -8,6 +8,8 @@ public class Main {
         try {
             ActDB actDB = ActDB.getSample();
 
+            actDB.addProject(new Project(4, "bull"));
+
             List<Project> projects= actDB.getAllProject();
             for (Project project : projects) {
                 System.out.println(project.toString());
