@@ -12,7 +12,7 @@ public class User {
 
     @Override
     public String toString(){
-        return String.format("ID: %s | Project ID: %s | Name: %s", this.id, this.pj_id, this.name);
+        return String.format("ID: %s | Project ID: %s | User Name: %s", this.id, this.pj_id, this.name);
     }
 
 }

@@ -81,6 +81,7 @@ public class ActDB {
     }
 
     public void addProject(Project project){
+
         try(PreparedStatement statement = this.connection.prepareStatement("INSERT INTO Projects('Name')" + "VALUES(?)")){
             statement.setObject(1, project.name);
             statement.execute();
@@ -90,8 +91,28 @@ public class ActDB {
         }
     }
 
-    public void addUser(User user){}
+    public void addUser(User user){
 
-    public void addIssue(Issue issue){}
+        try(PreparedStatement statement = this.connection.prepareStatement("INSERT INTO Users('Name', 'Project_id')" + "VALUES(?,?)")){
+            statement.setObject(1, user.name);
+            statement.setObject(2, user.pj_id);
+            statement.execute();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addIssue(Issue issue){
+
+        try(PreparedStatement statement = this.connection.prepareStatement("INSERT INTO Issues('Issue','User_id')" + "VALUES(?,?)")){
+            statement.setObject(2, issue.user_id);
+            statement.setObject(1, issue.issue);
+            statement.execute();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 
 }
