@@ -51,6 +51,9 @@ public class Main {
                         System.out.println(issue.toString());
                     }
                     break;
+                case "getIssue":
+                    actDB.getIssue(params[1], params[2]);
+                    break;
                 case "exit":
                     System.out.println("Good Bye");
                     return;
